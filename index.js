@@ -169,6 +169,22 @@ class InCallManager {
             console.log("ios doesn't support requestAudioFocus()");
         }
     }
+
+    async checkRecordPermission() {
+        return _InCallManager.checkRecordPermission();
+    }
+
+    async requestRecordPermission() {
+        return _InCallManager.requestRecordPermission();
+    }
+
+    async checkCameraPermission() {
+        return _InCallManager.checkCameraPermission();
+    }
+
+    async requestCameraPermission() {
+        return _InCallManager.requestCameraPermission();
+    }
 }
 
 export default new InCallManager();
