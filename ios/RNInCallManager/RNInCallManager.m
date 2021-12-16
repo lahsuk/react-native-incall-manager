@@ -108,6 +108,17 @@ RCT_EXPORT_MODULE(InCallManager)
 
         NSLog(@"RNInCallManager.init(): initialized");
     }
+
+    // Since we do not want the default behavior of hardware buttons to
+    // continue, intercept every hardware button event from the external device
+    MPRemoteCommandCenter *commandCenter =
+        [MPRemoteCommandCenter sharedCommandCenter];
+    [commandCenter.togglePlayPauseCommand setEnabled:NO];
+    [commandCenter.playCommand setEnabled:NO];
+    [commandCenter.pauseCommand setEnabled:NO];
+    [commandCenter.nextTrackCommand setEnabled:NO];
+    [commandCenter.previousTrackCommand setEnabled:NO];
+
     return self;
 }
 
